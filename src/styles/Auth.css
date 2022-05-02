@@ -1,0 +1,51 @@
+.navbar{
+    background-color: bisque;
+    border-style: solid;
+    border-color: burlywood;
+    height: 100%;
+    width: 100%;
+
+}
+.title{
+    font-size: 150%;
+    color:brown;
+    text-align: center  ;
+
+}
+.auth-body{
+    background-color: bisque;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.auth-div{
+    text-align: right;
+}
+.auth-link{
+    margin: 5px;
+    color: brown;
+
+}
+.auth-text{
+    font-size: 100%;
+
+}
+
+.auth-container{
+    text-align: center;
+    margin-top: 16%;
+    margin-left: 32%;
+    margin-right: 32%;
+    border-style: solid;
+    border-color: burlywood;
+    background-color: blanchedalmond;
+
+}
+.auth-input{
+    margin: 2%;
+}
+.auth-button{
+    margin: 2%;
+    background-color:  burlywood;
+    border-color: burlywood;
+}
