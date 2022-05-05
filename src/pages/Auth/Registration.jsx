@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import Input from "../../components/Input/Input";
-import RegistrationButton from "../../components/RegistrationButton/RegistrationButton";
+import Input from "../../components/Auth/Input/Input";
+import RegistrationButton from "../../components/Auth/RegistrationButton/RegistrationButton";
 import axios from "axios";
 import {users_request} from "../../constants/rest_requests";
+import {useNavigate} from "react-router-dom";
 
 const Registration = () => {
     const [name, setName] = useState("")
@@ -14,6 +15,7 @@ const Registration = () => {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [errors, setErrors] = useState(['Name', 'Surname', 'Email', 'Role', 'Location', 'Fullname', 'Password', 'ConfirmPassword'])
+    const navigate = useNavigate();
     const registrate = () => {
         if (errors.length !== 0) {
             alert("Заповніть усі поля!")
@@ -44,6 +46,16 @@ const Registration = () => {
                     setEmail('')
             }
             )
+            setName('')
+            setSurname('')
+            setEmail('')
+            setRole('')
+            setLocation('')
+            setFullname('')
+            setPassword('')
+            setConfirmPassword('')
+            alert("Реєстрація успішна!")
+            navigate("../login")
         }
     }
     return (
