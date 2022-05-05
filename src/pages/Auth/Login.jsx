@@ -11,12 +11,13 @@ const Login = () => {
     const [errors, setErrors] = useState(['Email', 'Password'])
     const navigate = useNavigate();
     useEffect(() => {
-        console.log("Loaded LoginPage")
-    }, []);
+        if (localStorage.token){
+            navigate('/profile')
+        }
+    })
     const login = async () => {
         if (errors.length !== 0) alert("Заповніть усі поля!")
         else {
-
             try{
                 let response = await axios.post(
                     users_request,
@@ -34,8 +35,8 @@ const Login = () => {
 
                 const token = response.data.token
                 localStorage.setItem('token', token)
-                navigate("/profile", )
-
+                window.history.pushState(null, null, window.location.href);
+                navigate("/profile")
             }
               catch (e) {
                   alert(e.response.data.message)

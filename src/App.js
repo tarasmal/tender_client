@@ -5,6 +5,7 @@ import Login from "./pages/Auth/Login";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import InfoPage from "./pages/Profile/InfoPage";
 import ActivityPage from "./pages/Profile/ActivityPage";
+import Unathorized from "./pages/StatusCodes/Unathorized";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
             <Route path={'/profile'} element={ <ProfilePage/> }>
                 <Route path={'info'} element={ <InfoPage /> }/>
                 <Route path={'activity'} element={ <ActivityPage/> } />
+            </Route>
+            <Route path={'/error'}>
+                <Route path={'unauthorized'} element={<Unathorized/>}/>
             </Route>
 
         </Routes>

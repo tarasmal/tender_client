@@ -1,15 +1,25 @@
 import React, { useEffect, useState} from 'react';
 import '../../styles/Profile.css'
-import {Outlet} from "react-router";
+import { Outlet,  useNavigate} from "react-router";
 import PrivateLink from "../../components/PrivateLink";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import {users_request} from "../../constants/rest_requests";
 import {UserContext} from "../../UserContext";
+import LogOutButton from "./LogOutButton";
+
+
 const ProfilePage = () => {
     const [userInfo, setUserInfo] = useState([])
+    const navigate = useNavigate()
+
     useEffect(() => {
-        console.log('Profile page is loaded')
+        if (!localStorage.token){
+            navigate('/error/unauthorized')
+        }
+
+    })
+    useEffect(() => {
         const fetchData = async () => {
             try{
                 const token_info = jwtDecode(localStorage.token)
@@ -34,9 +44,10 @@ const ProfilePage = () => {
             catch (error){
                 console.log(error)
             }
-
         }
         fetchData()
+
+
     }, [])
     return (
 
@@ -45,7 +56,7 @@ const ProfilePage = () => {
                 <nav className={'profile-links'}>
                     <PrivateLink path={'info'} placeholder={'User info'} />
                     <PrivateLink path={'activity'} placeholder={'User activity'} />
-
+                    <LogOutButton path={'/auth/login'} placeholder={'Log out'}/>
                 </nav>
 
             </div>
