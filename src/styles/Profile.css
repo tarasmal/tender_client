@@ -40,3 +40,8 @@
     width: fit-content;
     text-align: right;
 }
+
+.activity{
+    border-style: solid;
+    margin: 2%;
+}

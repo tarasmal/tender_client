@@ -1,5 +1,5 @@
 import React from 'react';
-import Info from "../../components/Profile/Info";
+import Info from "../../components/Profile/InfoPageComponents/Info";
 
 const InfoPage = () => {
 

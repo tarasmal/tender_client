@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import InfoCell from "./InfoCell";
-import {UserContext} from "../../UserContext";
+import {UserContext} from "../../../contexts";
 
 const Info = () => {
     const userInfo = useContext(UserContext)

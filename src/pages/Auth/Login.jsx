@@ -36,7 +36,7 @@ const Login = () => {
                 const token = response.data.token
                 localStorage.setItem('token', token)
                 window.history.pushState(null, null, window.location.href);
-                navigate("/profile")
+                navigate("/profile/info")
             }
               catch (e) {
                   alert(e.response.data.message)

@@ -5,7 +5,7 @@ import PrivateLink from "../../components/PrivateLink";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import {users_request} from "../../constants/rest_requests";
-import {UserContext} from "../../UserContext";
+import {UserContext} from "../../contexts";
 import LogOutButton from "./LogOutButton";
 
 
@@ -55,7 +55,8 @@ const ProfilePage = () => {
             <div className={'profile-links-body'}>
                 <nav className={'profile-links'}>
                     <PrivateLink path={'info'} placeholder={'User info'} />
-                    <PrivateLink path={'activity'} placeholder={'User activity'} />
+                    <PrivateLink path={'activity'} placeholder={'My activity'} />
+                    <PrivateLink path={'changepass'} placeholder={'Change my password'} />
                     <LogOutButton path={'/auth/login'} placeholder={'Log out'}/>
                 </nav>
 

@@ -6,6 +6,7 @@ import ProfilePage from "./pages/Profile/ProfilePage";
 import InfoPage from "./pages/Profile/InfoPage";
 import ActivityPage from "./pages/Profile/ActivityPage";
 import Unathorized from "./pages/StatusCodes/Unathorized";
+import ChangePasswordPage from "./pages/Profile/ChangePasswordPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path={'/profile'} element={ <ProfilePage/> }>
                 <Route path={'info'} element={ <InfoPage /> }/>
                 <Route path={'activity'} element={ <ActivityPage/> } />
+                <Route path={'changepass'} element={ <ChangePasswordPage/> } />
             </Route>
             <Route path={'/error'}>
                 <Route path={'unauthorized'} element={<Unathorized/>}/>
