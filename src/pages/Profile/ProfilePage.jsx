@@ -32,6 +32,7 @@ const ProfilePage = () => {
                 })
                 const data = response.data
                 const userData = Object.entries({
+                    id: data.id,
                     name: data.name,
                     surname: data.surname,
                     email: data.email,
@@ -57,6 +58,7 @@ const ProfilePage = () => {
                     <PrivateLink path={'info'} placeholder={'User info'} />
                     <PrivateLink path={'activity'} placeholder={'My activity'} />
                     <PrivateLink path={'changepass'} placeholder={'Change my password'} />
+                    <PrivateLink path={'/'} placeholder={'Home'} />
                     <LogOutButton path={'/auth/login'} placeholder={'Log out'}/>
                 </nav>
 
