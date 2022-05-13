@@ -15,7 +15,10 @@ const ProfilePage = () => {
 
     useEffect(() => {
         if (!localStorage.token){
-            navigate('/error/unauthorized')
+            navigate('/auth/login')
+        }
+        else {
+
         }
 
     })
@@ -43,7 +46,8 @@ const ProfilePage = () => {
                 setUserInfo(userData)
             }
             catch (error){
-                console.log(error)
+                localStorage.removeItem('token')
+                navigate('../auth/login')
             }
         }
         fetchData()
