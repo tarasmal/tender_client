@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import Input from "../../components/Auth/Input/Input";
-import LoginButton from "../../components/Auth/LoginButton/LoginButton";
 import axios from "axios";
 import {users_request} from "../../constants/rest_requests";
 import {useNavigate} from "react-router-dom";
+import CustomButton from  '../../components/CustomButton'
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -12,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (localStorage.token){
-            navigate('/profile')
+            navigate('/profile/info')
         }
     })
     const login = async () => {
@@ -45,10 +45,10 @@ const Login = () => {
         }
     }
     return (
-        <div className={'auth-container'}>
+        <div>
             <Input  name={'Email'} value={email} errors={errors} type={'text'}  setErrors={setErrors} onChangeHandler={setEmail}/>
             <Input  name={'Password'} value={password} errors={errors} type={'password'}  setErrors={setErrors} onChangeHandler={setPassword}/>
-            <LoginButton login={login}/>
+            <CustomButton f={login} text={'Login'}/>
         </div>
 
 

@@ -7,6 +7,7 @@ import InfoPage from "./pages/Profile/InfoPage";
 import ActivityPage from "./pages/Profile/ActivityPage";
 import Unathorized from "./pages/StatusCodes/Unathorized";
 import ChangePasswordPage from "./pages/Profile/ChangePasswordPage";
+import HomePage from "./pages/Home/HomePage";
 
 function App() {
   return (
@@ -16,11 +17,14 @@ function App() {
                 <Route path={'registration'} element={ <Registration/> }/>
                 <Route path={'login'} element={ <Login/> }/>
             </Route>
-            <Route path={'/profile'} element={ <ProfilePage/> }>
-                <Route path={'info'} element={ <InfoPage /> }/>
-                <Route path={'activity'} element={ <ActivityPage/> } />
-                <Route path={'changepass'} element={ <ChangePasswordPage/> } />
+            <Route path={'/'} element={<HomePage/>}>
+                <Route path={'profile'} element={ <ProfilePage/> }>
+                    <Route path={'info'} element={ <InfoPage /> }/>
+                    <Route path={'activity'} element={ <ActivityPage/> } />
+                    <Route path={'changepass'} element={ <ChangePasswordPage/> } />
+                </Route>
             </Route>
+
             <Route path={'/error'}>
                 <Route path={'unauthorized'} element={<Unathorized/>}/>
             </Route>

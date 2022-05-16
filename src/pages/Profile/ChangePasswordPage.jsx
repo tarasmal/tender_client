@@ -4,6 +4,7 @@ import {useState} from "react";
 import ChangeInput from "../../components/Profile/ChangePasswordComponents/ChangeInput";
 import {password_request} from "../../constants/rest_requests";
 import axios from "axios";
+import CustomButton from "../../components/CustomButton";
 
 const ChangePasswordPage = () => {
     const userInfo = useContext(UserContext)
@@ -61,7 +62,7 @@ const ChangePasswordPage = () => {
                 setErrors={setErrors}
                 onChange={setNewPassword}/>
 
-            <button className={'change-password-button'} onClick={() => changePassword(oldPassword, newPassword)}>Змінити пароль</button>
+            <CustomButton f={() => changePassword(oldPassword, newPassword)} text={'Change password'}>/</CustomButton>
         </div>
     );
 };

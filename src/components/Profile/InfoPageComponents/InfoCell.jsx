@@ -2,10 +2,10 @@ import React from 'react';
 
 const InfoCell = ({placeholder, value}) => {
     return (
-        <div className={'info-value'}>
+        <li style={{'marginBottom':'10px'}}
+            className={'list-group-item'}>
             {placeholder} : {value}
-
-        </div>
+        </li>
     );
 };
 

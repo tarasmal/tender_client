@@ -11,8 +11,10 @@ const Input = ({name, value, errors, type , setErrors, onChangeHandler}) => {
         }
     }
     return (
-        <div className={'auth-input'} >
-            <input type={type}
+            <input
+                className={'form-control'}
+                style={{'marginBottom': '10px'}}
+                type={type}
                    name={name}
                    placeholder={name}
                    value={value}
@@ -24,7 +26,6 @@ const Input = ({name, value, errors, type , setErrors, onChangeHandler}) => {
                    onBlur={() => onBlurHandler(errors, setErrors)}
 
             />
-        </div>
     );
 };
 

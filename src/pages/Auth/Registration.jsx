@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import Input from "../../components/Auth/Input/Input";
-import RegistrationButton from "../../components/Auth/RegistrationButton/RegistrationButton";
 import axios from "axios";
 import {users_request} from "../../constants/rest_requests";
 import {useNavigate} from "react-router-dom";
+import CustomButton from  '../../components/CustomButton'
 
 const Registration = () => {
     const [name, setName] = useState("")
@@ -68,7 +68,7 @@ const Registration = () => {
             <Input  name={'Fullname'} value={fullname} errors={errors} type={'text'}  setErrors={setErrors} onChangeHandler={setFullname}/>
             <Input  name={'Password'} value={password} errors={errors} type={'password'}  setErrors={setErrors} onChangeHandler={setPassword}/>
             <Input  name={'ConfirmPassword'} value={confirmPassword} errors={errors} type={'password'} setErrors={setErrors} onChangeHandler={setConfirmPassword}/>
-            <RegistrationButton registrate={registrate}/>
+            <CustomButton f={registrate} text={'Registrate'}/>
 
         </div>
     );

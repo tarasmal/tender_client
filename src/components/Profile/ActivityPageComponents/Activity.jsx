@@ -5,9 +5,10 @@ import ActivityCell from "./ActivityCell";
 const Activity = () => {
     const activities = useContext(ActivityContext)
     return (
-        <div >
+
+        <ul>
             {activities.map((field, index)=> <ActivityCell key={index} field={field} /> )}
-        </div>
+        </ul>
     );
 };
 

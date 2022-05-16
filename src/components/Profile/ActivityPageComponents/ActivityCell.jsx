@@ -2,9 +2,10 @@ import React from 'react';
 
 const ActivityCell = ({field}) => {
     return (
-        <div className={'activity'}>
-            {field.map(property => <div>{property[0]}: {property[1]}</div>)}
-        </div>
+        <ul style={{'padding':'10px'}}
+            className={'list-group'}>
+            {field.map((property, index) => <li className={'list-group-item'} key={index}> {property[0]}: {property[1]}</li>)}
+        </ul>
     );
 };
 

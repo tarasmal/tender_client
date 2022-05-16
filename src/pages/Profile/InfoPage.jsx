@@ -4,9 +4,10 @@ import Info from "../../components/Profile/InfoPageComponents/Info";
 const InfoPage = () => {
 
     return (
-        <div>
+        <ul className={'list-group list-group-flush'}>
             <Info/>
-        </div>
+        </ul>
+
     );
 };
 

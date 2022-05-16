@@ -13,8 +13,10 @@ const ChangeInput = ({value, placeholder, onChange, errors, setErrors, type, nam
 
     return (
         <div>
-            <input className={'change-password-input'}
-                   type={type} name={name}
+            <input className={'form-control'}
+                   style={{'margin-bottom': '10px'}}
+                   type={type}
+                   name={name}
                    value={value}
                    placeholder={placeholder}
                    onChange={e => {
