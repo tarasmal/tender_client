@@ -1,13 +1,15 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import {PaginationContext} from "../../contexts";
+import Previous from "./Previous";
+import Next from "./Next";
+import PagesBar from "./PagesBar";
 
-const Pagination = () => {
-    const pagination = useContext(PaginationContext)
+const Pagination = ({pagesCount, currentPage, setCurrentPage}) => {
     return (
         <div className={'mt-5 d-flex justify-content-center'}>
             <ul className="pagination">
-
+                <Previous currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+                <PagesBar pagesCount={pagesCount} setCurrentPage={setCurrentPage}/>
+                <Next pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
             </ul>
         </div>
     );
