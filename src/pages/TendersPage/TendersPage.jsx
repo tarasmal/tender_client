@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {getTendersPaginated} from "../../constants/rest_requests";
 import Tenders from "./Tenders";
@@ -23,7 +23,7 @@ const TendersPage = () => {
 
         }
         fetchTenders()
-    }, [])
+    }, [currentPage])
 
     return (
         <PaginationContext.Provider value={{
@@ -33,7 +33,7 @@ const TendersPage = () => {
         }}>
             <div>
                 <Tenders tenders={tenders} loading={loading}/>
-                <Pagination/>
+                <Pagination pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
             </div>
         </PaginationContext.Provider>
     );

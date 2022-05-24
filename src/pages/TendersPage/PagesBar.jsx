@@ -1,22 +1,30 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Bar from "./Bar";
 import {range} from "../../functions_helpers/range";
+import {PaginationContext} from "../../contexts";
 
 
-const PagesBar = ({pagesCount, setCurrentPage}) => {
-
+const PagesBar = () => {
+    const {currentPage, pagesCount, setCurrentPage} = useContext(PaginationContext)
     const [currentPages, setCurrentPages] = useState([])
-    const [activePage, setActivePage] = useState(0)
-    useEffect(() => setCurrentPages(range(pagesCount).slice(0, 3)), [])
+    useEffect(() => {
+        if (currentPage % 3 === 1){
+            setCurrentPages(range(pagesCount).slice(currentPage - 1, currentPage + 2))
+
+        }
+        else if (currentPage % 3 === 0){
+            setCurrentPages(range(pagesCount).slice(currentPage - 3, currentPage))
+        }
+
+
+    }, [currentPage])
 
     return (
         <React.Fragment>
-            {currentPages.map((pageNumber, index) => <Bar number={pageNumber}
+            {currentPages.map((pageNumber) => <Bar number={pageNumber}
                                                           setCurrentPage={setCurrentPage}
-                                                          isActive={
-                                                              index % 3 === activePage
-                                                          }
-                                                          setActivePage={setActivePage}
+                                                          currentPage={currentPage}
+
             />)}
         </React.Fragment>
     );

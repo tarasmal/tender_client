@@ -10,6 +10,7 @@ const Previous = ({currentPage, setCurrentPage}) => {
                 onClick={() => {
                     if (currentPage > 1){
                         setCurrentPage(() => currentPage - 1)
+
                     }
 
                 }}

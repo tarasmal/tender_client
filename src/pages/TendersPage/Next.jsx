@@ -10,8 +10,8 @@ const Next = ({pagesCount, currentPage, setCurrentPage}) => {
                 onClick={() => {
                     if (currentPage < pagesCount){
                         setCurrentPage(() => currentPage + 1)
-                    }
 
+                    }
                 }}
             >
                 Next
