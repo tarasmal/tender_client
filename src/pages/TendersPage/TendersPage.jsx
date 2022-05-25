@@ -5,6 +5,7 @@ import Tenders from "./Tenders";
 import Pagination from "./Pagination";
 import {PaginationContext} from "../../contexts";
 import SearchBar from "./SearchBar";
+import Checkbox from "./Checkbox";
 
 const TendersPage = () => {
     const [tenders, setTenders] = useState([])
@@ -13,6 +14,7 @@ const TendersPage = () => {
     const [loading, setLoading] = useState(true)
     const [search, setSearch] = useState('')
     const [isPaginate, setIsPaginate] = useState(true)
+    const [checkBoxStatus, setCheckBoxStatus] = useState(false)
     useEffect(() => {
         const fetchTenders = async () => {
             let response
@@ -26,7 +28,7 @@ const TendersPage = () => {
                 setIsPaginate(false)
             }
             response = await axios.get(getTendersPaginated, {params:
-                    {page: currentPage, limit: 2, searchReq: search},
+                    {page: currentPage, limit: 2, searchReq: search, status: checkBoxStatus},
                 headers: headers
             })
 
@@ -47,6 +49,7 @@ const TendersPage = () => {
             setCurrentPage: setCurrentPage,
         }}>
             <div>
+                <Checkbox checkBoxStatus={checkBoxStatus} setCheckBoxStatus={setCheckBoxStatus}/>
                 <SearchBar setSearch={setSearch}/>
                 <Tenders tenders={tenders} loading={loading}/>
                 {isPaginate ? <Pagination pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/> : null }

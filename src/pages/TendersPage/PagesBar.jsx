@@ -16,7 +16,6 @@ const PagesBar = () => {
             setCurrentPages(range(pagesCount).slice(currentPage - 3, currentPage))
         }
 
-
     }, [currentPage])
 
     return (
