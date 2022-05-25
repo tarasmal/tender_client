@@ -8,7 +8,7 @@ const PagesBar = () => {
     const {currentPage, pagesCount, setCurrentPage} = useContext(PaginationContext)
     const [currentPages, setCurrentPages] = useState([])
     useEffect(() => {
-        if (currentPage % 3 === 1){
+        if (currentPage % 3 === 1) {
             setCurrentPages(range(pagesCount).slice(currentPage - 1, currentPage + 2))
 
         }

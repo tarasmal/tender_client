@@ -4,18 +4,33 @@ import {getTendersPaginated} from "../../constants/rest_requests";
 import Tenders from "./Tenders";
 import Pagination from "./Pagination";
 import {PaginationContext} from "../../contexts";
+import SearchBar from "./SearchBar";
 
 const TendersPage = () => {
     const [tenders, setTenders] = useState([])
     const [pagesCount, setPagesCount] = useState(1)
     const [currentPage, setCurrentPage] = useState(1)
     const [loading, setLoading] = useState(true)
+    const [search, setSearch] = useState('')
+    const [isPaginate, setIsPaginate] = useState(true)
     useEffect(() => {
         const fetchTenders = async () => {
-            const response = await axios.get(getTendersPaginated, {params:
-                    {page: currentPage, limit: 2},
-            headers: {'Content-Type': "application/json"}
+            let response
+            let headers
+            if (search === ""){
+                headers = {'Content-Type': "application/json", 'Search': 'false'}
+                setIsPaginate(true)
+            }
+            else{
+                headers = {'Content-Type': "application/json", 'Search': 'true'}
+                setIsPaginate(false)
+            }
+            response = await axios.get(getTendersPaginated, {params:
+                    {page: currentPage, limit: 2, searchReq: search},
+                headers: headers
             })
+
+
             const resp = response.data
             setTenders(resp.tenders)
             setPagesCount(resp.pageCount)
@@ -23,7 +38,7 @@ const TendersPage = () => {
 
         }
         fetchTenders()
-    }, [currentPage])
+    }, [currentPage, search])
 
     return (
         <PaginationContext.Provider value={{
@@ -32,8 +47,9 @@ const TendersPage = () => {
             setCurrentPage: setCurrentPage,
         }}>
             <div>
+                <SearchBar setSearch={setSearch}/>
                 <Tenders tenders={tenders} loading={loading}/>
-                <Pagination pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+                {isPaginate ? <Pagination pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/> : null }
             </div>
         </PaginationContext.Provider>
     );
