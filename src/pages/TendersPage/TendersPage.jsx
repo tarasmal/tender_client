@@ -15,6 +15,7 @@ const TendersPage = () => {
     const [search, setSearch] = useState('')
     const [isPaginate, setIsPaginate] = useState(true)
     const [checkBoxStatus, setCheckBoxStatus] = useState(false)
+    const [firstLoaded, setFirstLoaded] = useState(true)
     useEffect(() => {
         const fetchTenders = async () => {
             let response
@@ -37,6 +38,7 @@ const TendersPage = () => {
             setTenders(resp.tenders)
             setPagesCount(resp.pageCount)
             setLoading(false)
+            setFirstLoaded(false)
 
         }
         fetchTenders()
@@ -52,7 +54,7 @@ const TendersPage = () => {
                 <Checkbox checkBoxStatus={checkBoxStatus} setCheckBoxStatus={setCheckBoxStatus}/>
                 <SearchBar setSearch={setSearch}/>
                 <Tenders tenders={tenders} loading={loading}/>
-                {isPaginate ? <Pagination pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/> : null }
+                {isPaginate && !firstLoaded? <Pagination pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/> : null }
             </div>
         </PaginationContext.Provider>
     );

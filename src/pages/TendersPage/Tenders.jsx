@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Tender from "./Tender";
 
 const Tenders = ({tenders, loading}) => {
@@ -6,7 +6,6 @@ const Tenders = ({tenders, loading}) => {
         return <h2 className={'primary-text mt-5 ml-5' }>LOADING...</h2>
     }
     else{
-        console.log(tenders, '!')
         return (
             <div>
                 {tenders.map((tender, index) => <Tender key={index}

@@ -20,9 +20,10 @@ const PagesBar = () => {
 
     return (
         <React.Fragment>
-            {currentPages.map((pageNumber) => <Bar number={pageNumber}
+            {currentPages.map((pageNumber, index) => <Bar number={pageNumber}
                                                           setCurrentPage={setCurrentPage}
                                                           currentPage={currentPage}
+                                                    key={index}
 
             />)}
         </React.Fragment>

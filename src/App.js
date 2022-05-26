@@ -25,6 +25,7 @@ function App() {
                     <Route path={'changepass'} element={ <ChangePasswordPage/> } />
                 </Route>
                 <Route path={'tenders'} element={ <TendersPage/> }/>
+                <Route path={'tenders/:id'} element={<div>active tender</div>}/>
             </Route>
 
             <Route path={'/error'}>
