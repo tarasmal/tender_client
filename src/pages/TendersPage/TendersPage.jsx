@@ -45,18 +45,20 @@ const TendersPage = () => {
     }, [currentPage, search])
 
     return (
-        <PaginationContext.Provider value={{
-            pagesCount: pagesCount,
-            currentPage: currentPage,
-            setCurrentPage: setCurrentPage,
-        }}>
-            <div>
+
+            <React.Fragment>
                 <Checkbox checkBoxStatus={checkBoxStatus} setCheckBoxStatus={setCheckBoxStatus}/>
                 <SearchBar setSearch={setSearch}/>
                 <Tenders tenders={tenders} loading={loading}/>
-                {isPaginate && !firstLoaded? <Pagination pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/> : null }
-            </div>
-        </PaginationContext.Provider>
+                <PaginationContext.Provider value={{
+                    pagesCount: pagesCount,
+                    currentPage: currentPage,
+                    setCurrentPage: setCurrentPage,
+                }}>
+                {isPaginate && !firstLoaded ? <Pagination pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/> : null }
+                </PaginationContext.Provider>
+            </React.Fragment>
+
     );
 
 };
