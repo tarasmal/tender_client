@@ -10,6 +10,7 @@ import ChangePasswordPage from "./pages/Profile/ChangePasswordPage";
 import HomePage from "./pages/Home/HomePage";
 import TendersPage from "./pages/TendersPage/TendersPage";
 import ActiveTenderPage from "./pages/TendersPage/ActiveTenderPage";
+import CreateTenderPage from "./pages/CreateTender/CreateTenderPage";
 
 function App() {
   return (
@@ -25,11 +26,13 @@ function App() {
                     <Route path={'activity'} element={ <ActivityPage/> } />
                     <Route path={'changepass'} element={ <ChangePasswordPage/> } />
                 </Route>
+
                 <Route path={'tenders'}>
                     <Route path={''} element={ <TendersPage/> }/>
                     <Route path={':id'} element={ <ActiveTenderPage/> }/>
-                </Route>
 
+                </Route>
+                <Route path={'/creating'} element={ <CreateTenderPage/> }/>
             </Route>
 
             <Route path={'/error'}>

@@ -4,6 +4,7 @@ import axios from "axios";
 import {users_request} from "../../constants/rest_requests";
 import {useNavigate} from "react-router-dom";
 import CustomButton from  '../../components/CustomButton'
+import {RegistrationContext} from "../../contexts";
 
 const Registration = () => {
     const [name, setName] = useState("")
@@ -15,7 +16,8 @@ const Registration = () => {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [errors, setErrors] = useState(['Name', 'Surname', 'Email', 'Role', 'Location', 'Fullname', 'Password', 'ConfirmPassword'])
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+
     const registrate = () => {
         if (errors.length !== 0) {
             alert("Заповніть усі поля!")
@@ -59,18 +61,27 @@ const Registration = () => {
         }
     }
     return (
-        <div className={'auth-container'} >
-            <Input  name={'Name'} value={name} errors={errors} type={'text'} setErrors={setErrors} onChangeHandler={setName}/>
-            <Input  name={'Surname'} value={surname} errors={errors} type={'text'}  setErrors={setErrors} onChangeHandler={setSurname}/>
-            <Input  name={'Email'} value={email} errors={errors} type={'text'}  setErrors={setErrors} onChangeHandler={setEmail}/>
-            <Input  name={'Role'} value={role} errors={errors} type={'text'}  setErrors={setErrors} onChangeHandler={setRole}/>
-            <Input  name={'Location'} value={location} errors={errors} type={'text'}  setErrors={setErrors} onChangeHandler={setLocation}/>
-            <Input  name={'Fullname'} value={fullname} errors={errors} type={'text'}  setErrors={setErrors} onChangeHandler={setFullname}/>
-            <Input  name={'Password'} value={password} errors={errors} type={'password'}  setErrors={setErrors} onChangeHandler={setPassword}/>
-            <Input  name={'ConfirmPassword'} value={confirmPassword} errors={errors} type={'password'} setErrors={setErrors} onChangeHandler={setConfirmPassword}/>
-            <CustomButton f={registrate} text={'Registrate'}/>
+        <RegistrationContext.Provider value={
+            {
+                errors: errors,
+                setErrors: setErrors
+            }
+        }>
 
-        </div>
+            <div className={'auth-container'} >
+                <Input  name={'Name'} value={name} type={'text'} onChangeHandler={setName} context={RegistrationContext}/>
+                <Input  name={'Surname'} value={surname}  type={'text'}  onChangeHandler={setSurname} context={RegistrationContext}/>
+                <Input  name={'Email'} value={email} type={'text'}  onChangeHandler={setEmail} context={RegistrationContext}/>
+                <Input  name={'Role'} value={role}  type={'text'} onChangeHandler={setRole} context={RegistrationContext}/>
+                <Input  name={'Location'} value={location} type={'text'}  onChangeHandler={setLocation} context={RegistrationContext}/>
+                <Input  name={'Fullname'} value={fullname} type={'text'}   onChangeHandler={setFullname} context={RegistrationContext}/>
+                <Input  name={'Password'} value={password} type={'password'} onChangeHandler={setPassword} context={RegistrationContext}/>
+                <Input  name={'ConfirmPassword'} value={confirmPassword} type={'password'} onChangeHandler={setConfirmPassword} context={RegistrationContext}/>
+                <CustomButton f={registrate} text={'Registrate'}/>
+
+            </div>
+
+        </RegistrationContext.Provider>
     );
 };
 

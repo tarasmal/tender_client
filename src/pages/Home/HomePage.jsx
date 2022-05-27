@@ -17,6 +17,9 @@ const HomePage = () => {
                 <div className={'col'}>
                     <Link className={'home-nav-links'} to={'/tenders'}>Tenders</Link>
                 </div>
+                <div className={'col'}>
+                    <Link className={'home-nav-links'} to={'/creating'}>Create tender</Link>
+                </div>
                 <div className={'col'}/>
                 <div className={'col'}/>
                 <div className={'col'}/>
