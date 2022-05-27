@@ -9,7 +9,7 @@ import Unathorized from "./pages/StatusCodes/Unathorized";
 import ChangePasswordPage from "./pages/Profile/ChangePasswordPage";
 import HomePage from "./pages/Home/HomePage";
 import TendersPage from "./pages/TendersPage/TendersPage";
-import ActiveTender from "./pages/TendersPage/ActiveTender";
+import ActiveTenderPage from "./pages/TendersPage/ActiveTenderPage";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
                 </Route>
                 <Route path={'tenders'}>
                     <Route path={''} element={ <TendersPage/> }/>
-                    <Route path={':id'} element={ <ActiveTender/> }/>
+                    <Route path={':id'} element={ <ActiveTenderPage/> }/>
                 </Route>
 
             </Route>
