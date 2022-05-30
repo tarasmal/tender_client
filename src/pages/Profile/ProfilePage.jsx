@@ -26,6 +26,7 @@ const ProfilePage = () => {
             try{
                 const token_info = jwtDecode(localStorage.token)
                 const id = token_info.id
+                localStorage.userId = id
                 const response = await axios.get(users_request + id, {
                     headers: {
                         'Authorization': "Bearer " + localStorage.token,

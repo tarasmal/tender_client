@@ -11,6 +11,7 @@ import HomePage from "./pages/Home/HomePage";
 import TendersPage from "./pages/TendersPage/TendersPage";
 import ActiveTenderPage from "./pages/TendersPage/ActiveTenderPage";
 import CreateTenderPage from "./pages/CreateTender/CreateTenderPage";
+import CreateBidPage from "./pages/CreateBidPage/CreateBidPage";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path={'/error'}>
                 <Route path={'unauthorized'} element={<Unathorized/>}/>
             </Route>
+            <Route path={'/createbid'} element={ <CreateBidPage/> }/>
 
         </Routes>
     </BrowserRouter>

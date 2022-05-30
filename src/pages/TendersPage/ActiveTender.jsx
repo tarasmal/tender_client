@@ -14,6 +14,9 @@ const ActiveTender = () => {
     const [number, setNumber] = useState("")
     const [loading, setLoading] = useState(true)
     useEffect(() => {
+        localStorage.tenderId = id
+    }, [id])
+    useEffect(() => {
         const fetchData = async () => {
             const tenderResponse = await axios.get(tenders_request + id, {
                 headers: {

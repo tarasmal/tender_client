@@ -13,6 +13,10 @@ const Pagination = ({pagesCount, currentPage, setCurrentPage}) => {
             </ul>
         </div>
     );
+
+
+
+
 };
 
 export default Pagination;
