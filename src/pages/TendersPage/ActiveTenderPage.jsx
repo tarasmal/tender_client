@@ -13,7 +13,7 @@ const ActiveTenderPage = () => {
         <div className={'row'}>
             <div className={'col'}>
                 <ActiveTender/>
-                <CustomButton f={toBid} text={'Create bid'}/>
+                {localStorage.role === 'provider' && <CustomButton f={toBid} text={'Create bid'}/>}
             </div>
 
             <div className={'col'}>

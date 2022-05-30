@@ -16,9 +16,6 @@ const ProfilePage = () => {
         if (!localStorage.token){
             navigate('/auth/login')
         }
-        else {
-
-        }
 
     })
     useEffect(() => {
@@ -26,7 +23,9 @@ const ProfilePage = () => {
             try{
                 const token_info = jwtDecode(localStorage.token)
                 const id = token_info.id
+                const role = token_info.role
                 localStorage.userId = id
+                localStorage.role = role
                 const response = await axios.get(users_request + id, {
                     headers: {
                         'Authorization': "Bearer " + localStorage.token,
