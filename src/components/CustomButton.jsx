@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
-const CustomButton = ({f, text}) => {
+const CustomButton = ({f, text, style}) => {
+    const [styling, setStyling] = useState({})
+    useEffect(() => {
+        setStyling(Object.assign({'margin':'1%'}, style))
+    }, [])
     return (
         <div>
-            <button  style={{'margin':'1%'}} className={'btn btn-secondary'} onClick={f}> {text} </button>
+            <button  style={styling} className={'btn btn-secondary'} onClick={f}> {text}</button>
         </div>
     );
 };

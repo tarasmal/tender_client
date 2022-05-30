@@ -1,13 +1,14 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {ActivityContext} from "../../../contexts";
 import ActivityCell from "./ActivityCell";
 
 const Activity = () => {
-    const activities = useContext(ActivityContext)
+    const info = useContext(ActivityContext)
+    useEffect(() => console.log(info, '!'), [])
     return (
 
         <ul>
-            {activities.map((field, index)=> <ActivityCell index={index} key={index} field={field} /> )}
+            {info.map((field, index)=> <ActivityCell  index={index}  key={index}    field={field} /> )}
         </ul>
     );
 };

@@ -11,7 +11,7 @@ const ActivityPage = () => {
     const userContext = useContext(UserContext)
     const role = userContext.filter(item => item[0] === 'role')[0][1]
     const processingData = data => {
-         const fields = role === 'customer' ? ['name', 'location', 'cost'] : ['cost']
+         const fields = role === 'customer' ? ['name', 'location', 'cost', 'status'] : ['cost']
          return data.map(field => field.filter(cell => fields.includes(cell[0])))
 
     }
