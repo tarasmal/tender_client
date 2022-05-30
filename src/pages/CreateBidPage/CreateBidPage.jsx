@@ -4,14 +4,20 @@ import Input from "../../components/Auth/Input/Input";
 import {bids_request} from "../../constants/rest_requests";
 import axios from "axios";
 import CustomButton from "../../components/CustomButton";
+import {useNavigate} from "react-router";
 
 const CreateBidPage = () => {
-    const [cost, setCost] = useState()
+    const [cost, setCost] = useState('')
     const [errors, setErrors] = useState(['cost'])
+    const navigate = useNavigate()
     const createBid = async () => {
+        if (!cost){
+            return alert('Fill the input!')
+        }
         const data = {
             cost: cost,
-            tenderId: localStorage.tenderId
+            tenderId: localStorage.tenderId,
+            userId: localStorage.userId,
         }
         try{
             await axios.put(bids_request, data, {
@@ -20,11 +26,12 @@ const CreateBidPage = () => {
                 }
             })
             alert('Bid has been successfully created!')
+            navigate(-1)
 
         }
         catch (e){
             console.log(e)
-            alert('Error!')
+            alert('You have already applied a bid!')
 
         }
 
@@ -41,7 +48,7 @@ const CreateBidPage = () => {
 
                 <div className={'mt-5 ml-5 w-50'}>
                     Suggest your cost for bid:
-                    <Input name={'cost'} value={cost} context={BidContext} onChangeHandler={setCost}/>
+                    <Input name={'cost'} value={cost} context={BidContext} type={'text'} onChangeHandler={setCost}/>
                     <CustomButton f={createBid} text={'Create bid'}/>
                 </div>
             </div>
