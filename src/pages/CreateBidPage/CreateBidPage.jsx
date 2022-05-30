@@ -30,8 +30,16 @@ const CreateBidPage = () => {
 
         }
         catch (e){
-            console.log(e)
-            alert('You have already applied a bid!')
+            let message
+            const response = e.response.status
+            if (response === 403){
+                message = 'This tender is paused!'
+            }
+            else if (response === 406){
+                message = 'You have already applied a bid!'
+            }
+            alert(message)
+
 
         }
 
