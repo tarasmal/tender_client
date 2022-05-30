@@ -7,7 +7,7 @@ const Activity = () => {
     return (
 
         <ul>
-            {activities.map((field, index)=> <ActivityCell key={index} field={field} /> )}
+            {activities.map((field, index)=> <ActivityCell index={index} key={index} field={field} /> )}
         </ul>
     );
 };

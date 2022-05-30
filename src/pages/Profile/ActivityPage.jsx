@@ -20,7 +20,7 @@ const ActivityPage = () => {
             try{
                 const token_info = jwtDecode(localStorage.token)
                 const id = token_info.id
-                const response = await axios.get(role === 'customer' ? tenders_request + id : bids_request + id, {
+                const response = await axios.get(role === 'customer' ? tenders_request + id : bids_request, {
                     headers: {
                         'Authorization': "Bearer " + localStorage.token,
                         'Content-Type': "application/json"
