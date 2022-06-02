@@ -6,14 +6,18 @@ const ActivityCell = ({field, index}) => {
     const [renderInfo, setRenderInfo] = useState([])
     useEffect(() => {
         const info = field.filter(it => it[0] !== 'status')
-        const status_ = field.filter(it => it[0] === 'status')[0][1]
-        console.log(status_)
         setRenderInfo(info)
+
+
+
+    }, [renderInfo])
+    useEffect(() => {
+        const status_ = field.filter(it => it[0] === 'status')[0][1]
         setStatus(status_)
+    }, [status])
+    const pause = async (status) => {
 
-
-    }, [])
-
+    }
     return (
         <ul style={{'padding':'10px'}}
             className={'list-group'}>
