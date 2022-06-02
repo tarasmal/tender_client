@@ -13,7 +13,7 @@ const ActivityPage = () => {
     const processingData = data => {
          const status = data.filter(arr => arr.filter(it => it.includes('status')))
          console.log(status)
-         const fields = role === 'customer' ? ['name', 'location', 'cost', 'status'] : ['cost']
+         const fields = role === 'customer' ? ['id', 'name', 'location', 'cost', 'status'] : ['id', 'cost']
          return data.map(field => field.filter(cell => fields.includes(cell[0])))
 
     }

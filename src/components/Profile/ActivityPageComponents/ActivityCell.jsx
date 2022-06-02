@@ -5,16 +5,16 @@ const ActivityCell = ({field, index}) => {
     const [status, setStatus] = useState([])
     const [renderInfo, setRenderInfo] = useState([])
     useEffect(() => {
-        const info = field.filter(it => it[0] !== 'status')
+        const info = field.filter(it => !['status', 'id'].includes(it[0]))
         setRenderInfo(info)
 
 
 
-    }, [renderInfo])
+    }, [])
     useEffect(() => {
         const status_ = field.filter(it => it[0] === 'status')[0][1]
         setStatus(status_)
-    }, [status])
+    }, [])
     const pause = async (status) => {
 
     }
