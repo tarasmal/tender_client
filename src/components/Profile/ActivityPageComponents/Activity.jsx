@@ -9,7 +9,7 @@ const Activity = () => {
     const [info, setInfo] = useState([])
     const role = localStorage.role
     const processingData = data => {
-        const fields = role === 'customer' ? ['id', 'name', 'location', 'cost', 'status'] : ['id', 'cost']
+        const fields = role === 'customer' ? ['id', 'name', 'location', 'cost', 'status'] : ['id', 'cost', 'tenderId']
         return data.map(field => field.filter(cell => fields.includes(cell[0])))
 
     }
@@ -26,7 +26,6 @@ const Activity = () => {
                 })
                 const res = response.data
                 let data = res.map(item => Object.entries(item))
-                console.log(data)
                 setInfo(processingData(data))
             }
             catch (error){
