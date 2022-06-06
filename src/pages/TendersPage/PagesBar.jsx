@@ -5,7 +5,7 @@ import {PaginationContext} from "../../contexts";
 
 
 const PagesBar = () => {
-    const {currentPage, pagesCount, setCurrentPage} = useContext(PaginationContext)
+    const {currentPage, pagesCount, setCurrentPage, status} = useContext(PaginationContext)
     const [currentPages, setCurrentPages] = useState([])
     useEffect(() => {
         if (currentPage % 3 === 1) {
@@ -16,7 +16,7 @@ const PagesBar = () => {
             setCurrentPages(range(pagesCount).slice(currentPage - 3, currentPage))
         }
 
-    }, [currentPage])
+    }, [currentPage, status])
 
     return (
         <React.Fragment>

@@ -42,7 +42,7 @@ const TendersPage = () => {
 
         }
         fetchTenders()
-    }, [currentPage, search])
+    }, [currentPage, search, checkBoxStatus])
 
     return (
 
@@ -54,6 +54,7 @@ const TendersPage = () => {
                     pagesCount: pagesCount,
                     currentPage: currentPage,
                     setCurrentPage: setCurrentPage,
+                    status: checkBoxStatus,
                 }}>
                 {isPaginate && !firstLoaded ? <Pagination pagesCount={pagesCount} currentPage={currentPage} setCurrentPage={setCurrentPage}/> : null }
                 </PaginationContext.Provider>
