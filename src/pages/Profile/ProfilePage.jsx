@@ -67,7 +67,6 @@ const ProfilePage = () => {
 
                     </ul>
 
-
                 </div>
 
                 <div className={'col'}>
@@ -76,10 +75,6 @@ const ProfilePage = () => {
                         </UserContext.Provider>
                 </div>
                 <div className={'col'}/>
-
-
-
-
 
             </div>
         </div>

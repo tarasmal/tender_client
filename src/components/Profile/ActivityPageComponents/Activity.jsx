@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {ActivityContext} from "../../../contexts";
+import React, {useEffect, useState} from 'react';
 import ActivityCell from "./ActivityCell";
 import jwtDecode from "jwt-decode";
 import axios from "axios";

@@ -59,11 +59,11 @@ const ActivityCell = ({field, index}) => {
                 headers: {'Content-Type': "application/json"}
             })
 
-            alert("Tender has been successfully deleted")
+            alert("Deleted")
         }
         catch (e){
             console.log(e)
-            alert("Tender has been not deleted")
+            alert("Not deleted")
         }
 
 
